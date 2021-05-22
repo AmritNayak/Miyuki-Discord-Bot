@@ -57,13 +57,25 @@ async def on_command_error(ctx, error):
 async def on_guild_join(guild):
     system_channel = guild.system_channel
     if system_channel.permissions_for(guild.me).send_messages:
-        await system_channel.send("Warm Greetings...\n\n"
-                                  "I am Motivate Bot\n"
-                                  "I send inspiring quotes and heartwarming messages\n"
-                                  "use this command '^help' for bot instructions\n"
-                                  "(under development, more features coming soon...)\n"
-                                  "Thank you for having me on your server!\n\n"
-                                  "  - Developed by Amrit Nayak")
+        embed = discord.Embed(title="Warm Greetings...",
+                              color=discord.Color.gold())
+        embed.set_thumbnail(url=guild.get_member(843839492904189952).avatar_url)
+        embed.add_field(name="I am Miyuki - The Motivate Bot",
+                        value="I send inspiring quotes and heartwarming messages\n"
+                              "Use this command ( ^help ) for bot instructions\n"
+                              "(under development, more features coming soon...)\n",
+                        inline=False)
+        embed.add_field(name="Thank you for having me on your server!  ❤",
+                        value="  - Developed by Amrit Nayak",
+                        inline=False)
+        # await system_channel.send("Warm Greetings...\n\n"
+        #                           "I am Miyuki - The Motivate Bot\n"
+        #                           "I send inspiring quotes and heartwarming messages\n"
+        #                           "use this command '^help' for bot instructions\n"
+        #                           "(under development, more features coming soon...)\n"
+        #                           "Thank you for having me on your server!\n\n"
+        #                           "  - Developed by Amrit Nayak")
+        await system_channel.send(embed=embed)
 
 
 @bot.event
@@ -185,9 +197,9 @@ async def coin_toss(ctx):
     await ctx.send(f"Tossing Coin...\nIt's {random.choice(coin)}!")
 
 
-@bot.command(name="clear")
+@bot.command(name="clear", help="- Clears chats")
 async def clear_msg(ctx, amount=5):
-    await ctx.channel.purge(limit=amount+1)
+    await ctx.channel.purge(limit=amount + 1)
     await ctx.send(f"Vanished {amount} messages :)")
 
 
