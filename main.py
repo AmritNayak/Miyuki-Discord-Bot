@@ -88,7 +88,7 @@ async def on_member_join(member: discord.Member):
 @bot.event
 async def on_message(message):
     msg = message.content.lower()
-    if message.author == bot.user:
+    if message.author == bot.user or message.author.bot:
         return
     if any(sad_word in msg for sad_word in SAD_TRIGGER) and msg[0] != PREFIX:
         await message.channel.send(random.choice(ENCOURAGING_MSG))
@@ -200,7 +200,7 @@ async def coin_toss(ctx):
 @bot.command(name="clear", help="- Clears chats")
 async def clear_msg(ctx, amount=5):
     await ctx.channel.purge(limit=amount + 1)
-    await ctx.send(f"Vanished {amount} messages :)")
+    await ctx.send(f"Vanished {amount} messages ♻")
 
 
 bot.run(TOKEN)
