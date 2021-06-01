@@ -3,7 +3,7 @@ GREET_MSG = [
     "Hello from the other side",
     "It's me again",
     "Just a friendly hello from me to you",
-    "Allow Me to Introduce Myself, I am Bot, Greetings",
+    "Allow Me to Introduce Myself, I am Miyuki, Greetings",
     "What's up ?",
     "Oh Heeeeey",
     "Well, hello there...",
@@ -12,7 +12,9 @@ GREET_MSG = [
     "Konnichiwa"
 ]
 
-SAD_TRIGGER = ["sad", "depress", "unhappy", "angry", "miserable", "cry", "cried"]
+SAD_TRIGGER = ["sad", "depress", "unhappy", "angry", "miserable",
+               "cry", "cried", "upset", "despair", "grief", "trouble",
+               "sorry", "distress", "mourn", "gloom", "miserable"]
 ENCOURAGING_MSG = [
     "You got this.",
     "Good luck today! ...",
